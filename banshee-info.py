@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 ###########################################################################
 #
 # Banshee Info
@@ -76,7 +77,10 @@ if __name__ == "__main__":
             for arg in sys.argv:
                 if banshee_info.running() and banshee_info.get_state() != 'idle':
                     if arg == '--basic':
-                        print banshee_info.get_author() + ' - ' + banshee_info.get_title()
+                        try:
+                            print banshee_info.get_author() + ' - ' + banshee_info.get_title()
+                        except:
+                            print 'Unknown - Unknown'
                     if arg == '--title':
                         print banshee_info.get_title()
                     if arg == '--author':
